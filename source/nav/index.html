@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>昴星团</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    
+    .nav-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .background-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* 底层背景图 */
+    .background-slider::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/images/bg-default.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1500ms ease-in-out;
+      z-index: 1;
+    }
+    
+    .bg-image.active {
+      opacity: 1;
+    }
+    
+    .nav-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 10;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      letter-spacing: 0.5rem;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .nav-subtitle {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin: 0 0 2rem 0;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.3s both;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    
+    .enter-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background-color: #39c5bb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease-out 0.6s both;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(57, 197, 187, 0.4);
+    }
+    
+    .enter-button:hover {
+      background-color: #2da89e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(57, 197, 187, 0.6);
+    }
+    
+    .nav-zones {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      z-index: 5;
+    }
+    
+    .nav-zone {
+      height: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .nav-zone:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .nav-zone-left {
+      width: 20%;
+    }
+    
+    .nav-zone-center {
+      width: 60%;
+      cursor: default;
+    }
+    
+    .nav-zone-center:hover {
+      background-color: transparent;
+    }
+    
+    .nav-zone-right {
+      width: 20%;
+    }
+    
+    .nav-hints {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      pointer-events: none;
+      z-index: 6;
+    }
+    
+    .nav-hint {
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.3);
+      transition: color 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    
+    .nav-zone-left:hover ~ .nav-hints .nav-hint-left,
+    .nav-zone-right:hover ~ .nav-hints .nav-hint-right {
+      opacity: 1;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-title {
+        font-size: 2.5rem;
+        letter-spacing: 0.3rem;
+      }
+      
+      .nav-subtitle {
+        font-size: 1rem;
+        padding: 0 2rem;
+      }
+      
+      .enter-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+      
+      .nav-hint {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="nav-section" class="nav-section">
+    <div class="background-slider">
+      <div class="bg-image active" data-index="0"></div>
+      <div class="bg-image" data-index="1"></div>
+      <div class="bg-image" data-index="2"></div>
+    </div>
+    <div class="nav-content">
+      <h1 class="nav-title">昴星团</h1>
+      <p class="nav-subtitle" id="nav-subtitle">Miku</p>
+      <a href="/archives" class="enter-button">Button</a>
+    </div>
+    <div class="nav-zones">
+      <div class="nav-zone nav-zone-left" id="nav-prev"></div>
+      <div class="nav-zone nav-zone-center"></div>
+      <div class="nav-zone nav-zone-right" id="nav-next"></div>
+    </div>
+    <div class="nav-hints">
+      <span class="nav-hint nav-hint-left">‹</span>
+      <span class="nav-hint nav-hint-right">›</span>
+    </div>
+  </div>
+
+  <script>
+    window.backgroundConfig = {
+      backgrounds: [
+        { image: '/images/bg-1.jpg', subtitle: 'Miku' },
+        { image: '/images/bg-2.jpg', subtitle: 'Ayase' },
+        { image: '/images/bg-3.jpg', subtitle: 'Rin/Ren' }
+      ],
+      autoPlayInterval: 5000
+    };
+  </script>
+  <script>
+    (function() {
+      'use strict';
+
+      var config = window.backgroundConfig || { backgrounds: [], autoPlayInterval: 5000 };
+      var backgrounds = config.backgrounds;
+      var currentIndex = 0;
+      var autoPlayTimer = null;
+      var isTransitioning = false;
+
+      var bgImages = document.querySelectorAll('.bg-image');
+      var subtitleEl = document.getElementById('nav-subtitle');
+      var prevBtn = document.getElementById('nav-prev');
+      var nextBtn = document.getElementById('nav-next');
+
+      function init() {
+        if (backgrounds.length === 0) {
+          console.warn('No backgrounds configured');
+          return;
+        }
+
+        // Initialize background images
+        bgImages.forEach(function(img, index) {
+          if (backgrounds[index]) {
+            img.style.backgroundImage = 'url(' + backgrounds[index].image + ')';
+          }
+        });
+
+        // Update subtitle
+        updateSubtitle();
+
+        // Preload next image
+        preloadImage(getNextIndex(1));
+
+        // Start autoplay
+        startAutoPlay();
+
+        // Bind events
+        bindEvents();
+      }
+
+      function getNextIndex(direction) {
+        var newIndex = currentIndex + direction;
+        if (newIndex < 0) {
+          return backgrounds.length - 1;
+        } else if (newIndex >= backgrounds.length) {
+          return 0;
+        }
+        return newIndex;
+      }
+
+      function updateSubtitle() {
+        if (subtitleEl && backgrounds[currentIndex]) {
+          subtitleEl.style.opacity = '0';
+          setTimeout(function() {
+            subtitleEl.textContent = backgrounds[currentIndex].subtitle;
+            subtitleEl.style.opacity = '0.9';
+          }, 300);
+        }
+      }
+
+      function preloadImage(index) {
+        if (backgrounds[index]) {
+          var img = new Image();
+          img.src = backgrounds[index].image;
+        }
+      }
+
+      function goToSlide(index, isManual) {
+        if (isTransitioning || index === currentIndex || backgrounds.length === 0) {
+          return;
+        }
+
+        isTransitioning = true;
+
+        // Find current active element
+        var currentBg = null;
+        var nextBg = null;
+        
+        for (var i = 0; i < bgImages.length; i++) {
+          if (bgImages[i].classList.contains('active')) {
+            currentBg = bgImages[i];
+          } else if (!nextBg) {
+            nextBg = bgImages[i];
+          }
+        }
+        
+        // Fallback
+        if (!currentBg) currentBg = bgImages[0];
+        if (!nextBg) nextBg = bgImages[1] || bgImages[0];
+
+        // Set next background image
+        if (backgrounds[index]) {
+          nextBg.style.backgroundImage = 'url(' + backgrounds[index].image + ')';
+        }
+
+        // Pure opacity transition - no z-index changes
+        nextBg.classList.add('active');
+        currentBg.classList.remove('active');
+
+        // Update index
+        currentIndex = index;
+
+        // Update subtitle
+        updateSubtitle();
+
+        // Preload next image
+        preloadImage(getNextIndex(1));
+
+        // Clear old image after transition
+        setTimeout(function() {
+          currentBg.style.backgroundImage = '';
+        }, 1500);
+
+        // Reset transition flag
+        setTimeout(function() {
+          isTransitioning = false;
+        }, 1600);
+
+        // Reset autoplay only on manual navigation
+        if (isManual) {
+          resetAutoPlay();
+        }
+      }
+
+      function nextSlide(isManual) {
+        goToSlide(getNextIndex(1), isManual);
+      }
+
+      function prevSlide() {
+        goToSlide(getNextIndex(-1), true);
+      }
+
+      function startAutoPlay() {
+        if (backgrounds.length <= 1) return;
+        stopAutoPlay();
+        autoPlayTimer = setInterval(function() {
+          nextSlide(false);
+        }, config.autoPlayInterval);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayTimer) {
+          clearInterval(autoPlayTimer);
+          autoPlayTimer = null;
+        }
+      }
+
+      function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+      }
+
+      function bindEvents() {
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide(true);
+          });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowLeft') {
+            prevSlide();
+          } else if (e.key === 'ArrowRight') {
+            nextSlide(true);
+          }
+        });
+
+        // Pause autoplay on hover
+        var navSection = document.getElementById('nav-section');
+        if (navSection) {
+          navSection.addEventListener('mouseenter', stopAutoPlay);
+          navSection.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Visibility API
+        document.addEventListener('visibilitychange', function() {
+          if (document.hidden) {
+            stopAutoPlay();
+          } else {
+            startAutoPlay();
+          }
+        });
+      }
+
+      // Initialize
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>

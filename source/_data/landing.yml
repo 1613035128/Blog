@@ -1,0 +1,26 @@
+# Landing Page Configuration
+# 背景图和轮播图片配置
+
+slides:
+  # 背景图（第一项，不需要文本，order 必须为 -1）
+  - image: bg-default.png
+    text: ""
+    order: -1
+  
+  # 轮播图片 1
+  - image: bg-1.jpg
+    text: "MikuMiku"
+    order: 2
+  
+  # 轮播图片 2
+  - image: bg-2.jpg
+    text: "AyaseSun"
+    order: 1
+  
+  # 轮播图片 3
+  - image: bg-3.jpg
+    text: "JumpMiku"
+    order: 3
+
+# 自动切换间隔（毫秒）
+autoPlayInterval: 5000
