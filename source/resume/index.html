@@ -19,9 +19,15 @@
       line-height: 1.6;
     }
     
+    .resume-wrapper {
+      background: #f5f5f5;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
     .resume-container {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 0 auto;
       background: #fff;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
       display: flex;
@@ -217,20 +223,21 @@
       color: #555;
     }
     
-    /* 技能 */
+    /* 技能标签 */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
     
     .skill-tag {
-      padding: 6px 14px;
-      background: rgba(57, 197, 187, 0.1);
-      border: 1px solid #39c5bb;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: #39c5bb;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      font-size: 0.8rem;
+      color: #fff;
+      white-space: nowrap;
     }
     
     /* 项目经验 */
@@ -263,7 +270,7 @@
       line-height: 1.6;
     }
     
-    /* 返回按钮 */
+    /* 返回按钮 - 风格一致性元素 */
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -284,9 +291,12 @@
     
     /* 响应式 */
     @media (max-width: 768px) {
+      .resume-wrapper {
+        padding: 20px;
+      }
+      
       .resume-container {
         flex-direction: column;
-        margin: 20px;
       }
       
       .sidebar {
@@ -300,156 +310,162 @@
   </style>
 </head>
 <body>
-  <div class="resume-container">
-    <!-- 左侧边栏 -->
-    <aside class="sidebar">
-      <!-- 头像和基本信息 -->
-      <div class="avatar-section">
-        <div class="avatar">宋</div>
-        <div class="name-sidebar">宋浩然</div>
-        <div class="title-sidebar">游戏客户端开发工程师<br>（UE，U3D）</div>
-      </div>
+  <div class="resume-wrapper">
+    <div class="resume-container">
+      <!-- 左侧边栏 -->
+      <aside class="sidebar">
+        <!-- 头像和基本信息 -->
+        <div class="avatar-section">
+          <div class="avatar">宋</div>
+          <div class="name-sidebar">宋浩然</div>
+          <div class="title-sidebar">游戏客户端开发工程师<br>（UE，U3D）</div>
+        </div>
+        
+        <!-- 个人简介 -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">个人简介</div>
+          <div class="sidebar-content">
+            我是一名专注于PVP RTS游戏的游戏客户端开发工程师，拥有3年的Unity和UE4/5开发经验（各1.5年）。擅长Gameplay编程、性能优化和服务器开发，曾参与《战争警戒》的完整开发周期。
+          </div>
+        </div>
+        
+        <!-- 联系方式 -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">联系方式</div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-text">
+              <div class="contact-label">邮箱</div>
+              <div>kirino8214@gmail.com</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="contact-text">
+              <div class="contact-label">电话</div>
+              <div>19539483901</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-text">
+              <div class="contact-label">个人网站</div>
+              <div>pleiadorum.cn</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 教育背景 -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">教育背景</div>
+          <div class="sidebar-content">
+            <strong>湖南大学</strong><br>
+            数字媒体技术 - 本科<br>
+            2019.06 - 2023.07
+          </div>
+        </div>
+        
+        <!-- 技能标签 -->
+        <div class="sidebar-section">
+          <div class="sidebar-title">技能标签</div>
+          <div class="skills-container">
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">UE4</span>
+            <span class="skill-tag">UE5</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Gameplay开发</span>
+            <span class="skill-tag">性能优化</span>
+            <span class="skill-tag">渲染/Shader</span>
+            <span class="skill-tag">网络同步</span>
+            <span class="skill-tag">服务器开发</span>
+            <span class="skill-tag">编辑器工具</span>
+          </div>
+        </div>
+      </aside>
       
-      <!-- 个人简介 -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">个人简介</div>
-        <div class="sidebar-content">
-          我是一名专注于PVP RTS游戏的游戏客户端开发工程师，拥有3年的Unity和UE4/5开发经验（各1.5年）。擅长Gameplay编程、性能优化和服务器开发，曾参与《战争警戒》的完整开发周期。
-        </div>
-      </div>
-      
-      <!-- 联系方式 -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">联系方式</div>
+      <!-- 右侧内容 -->
+      <div class="content">
+        <!-- 工作经历 -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">工作经历</span>
+            <span class="section-line"></span>
+          </div>
+          
+          <div class="experience-item">
+            <div class="exp-header">
+              <div class="exp-date">2025.02 - 至今</div>
+              <div class="exp-title">UE开发 <span style="color:#999">|</span> <span class="exp-company">上海冒险岛网络</span></div>
+            </div>
+            <div class="exp-desc">
+              <ul>
+                <li>开发和维护技能系统、物理破坏系统、单位皮肤系统</li>
+                <li>负责部分战斗UI系统、指令系统开发</li>
+                <li>参与部分服务器开发</li>
+                <li>完整跟进项目优化工作</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <div class="exp-header">
+              <div class="exp-date">2023.07 - 2024.12</div>
+              <div class="exp-title">U3D开发 <span style="color:#999">|</span> <span class="exp-company">宁波小伏科技有限公司</span></div>
+            </div>
+            <div class="exp-desc">
+              <ul>
+                <li>使用Unity开发VR应用</li>
+                <li>实现完整任务引导流程和动作模块</li>
+                <li>使用IK模拟肢体动作</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div class="contact-text">
-            <div class="contact-label">邮箱</div>
-            <div>kirino8214@gmail.com</div>
+        <!-- 项目经验 -->
+        <section class="section">
+          <div class="section-header">
+            <span class="section-title">项目经验</span>
+            <span class="section-line"></span>
           </div>
-        </div>
+          
+          <div class="project-item">
+            <div class="project-name">战争警戒（War Alert）</div>
+            <div class="project-tech">UE5 + C++ + 帧同步</div>
+            <div class="project-desc">
+              参与PVP RTS游戏《战争警戒》的完整开发周期。负责技能系统、物理破坏系统、单位皮肤系统的开发与维护，参与战斗UI和指令系统开发，负责部分服务器开发工作，并完整跟进项目性能优化工作。
+            </div>
+          </div>
+          
+          <div class="project-item">
+            <div class="project-name">VR应用开发</div>
+            <div class="project-tech">Unity + C# + VR SDK</div>
+            <div class="project-desc">
+              使用Unity开发VR应用程序，实现完整的任务引导流程系统，开发角色动作模块，使用IK（反向动力学）技术模拟真实肢体动作，提供沉浸式VR体验。
+            </div>
+          </div>
+          
+          <div class="project-item">
+            <div class="project-name">个人技术博客</div>
+            <div class="project-tech">Hexo + Node.js + GitHub Actions</div>
+            <div class="project-desc">
+              基于Hexo构建的静态博客系统，记录游戏开发技术心得。集成自动化部署、背景轮播、响应式设计等功能，使用GitHub Actions实现CI/CD自动化工作流。
+            </div>
+          </div>
+        </section>
         
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-text">
-            <div class="contact-label">电话</div>
-            <div>19539483901</div>
-          </div>
+        <!-- 返回目录按钮 - 风格一致性元素，放在项目经验下方 -->
+        <div style="margin-top: 40px;">
+          <a href="/archives/" class="back-link">
+            <span>←</span>
+            <span>返回目录</span>
+          </a>
         </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">🌐</div>
-          <div class="contact-text">
-            <div class="contact-label">个人网站</div>
-            <div>pleiadorum.cn</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 教育背景 -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">教育背景</div>
-        <div class="sidebar-content">
-          <strong>湖南大学</strong><br>
-          数字媒体技术 - 本科<br>
-          2019.06 - 2023.07
-        </div>
-      </div>
-      
-      <!-- 技能特长 -->
-      <div class="sidebar-section">
-        <div class="sidebar-title">技能特长</div>
-        <div class="skills-container">
-          <span class="skill-tag">Unity</span>
-          <span class="skill-tag">UE4</span>
-          <span class="skill-tag">UE5</span>
-          <span class="skill-tag">C#</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Gameplay</span>
-          <span class="skill-tag">性能优化</span>
-        </div>
-      </div>
-    </aside>
-    
-    <!-- 右侧内容 -->
-    <div class="content">
-      <!-- 工作经历 -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-title">工作经历</span>
-          <span class="section-line"></span>
-        </div>
-        
-        <div class="experience-item">
-          <div class="exp-header">
-            <div class="exp-date">2025.02 - 至今</div>
-            <div class="exp-title">UE开发 <span style="color:#999">|</span> <span class="exp-company">上海冒险岛网络</span></div>
-          </div>
-          <div class="exp-desc">
-            <ul>
-              <li>开发和维护技能系统、物理破坏系统、单位皮肤系统</li>
-              <li>负责部分战斗UI系统、指令系统开发</li>
-              <li>参与部分服务器开发</li>
-              <li>完整跟进项目优化工作</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="experience-item">
-          <div class="exp-header">
-            <div class="exp-date">2023.07 - 2024.12</div>
-            <div class="exp-title">U3D开发 <span style="color:#999">|</span> <span class="exp-company">宁波小伏科技有限公司</span></div>
-          </div>
-          <div class="exp-desc">
-            <ul>
-              <li>使用Unity开发VR应用</li>
-              <li>实现完整任务引导流程和动作模块</li>
-              <li>使用IK模拟肢体动作</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      <!-- 项目经验 -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-title">项目经验</span>
-          <span class="section-line"></span>
-        </div>
-        
-        <div class="project-item">
-          <div class="project-name">战争警戒（War Alert）</div>
-          <div class="project-tech">UE5 + C++ + 帧同步</div>
-          <div class="project-desc">
-            参与PVP RTS游戏《战争警戒》的完整开发周期。负责技能系统、物理破坏系统、单位皮肤系统的开发与维护，参与战斗UI和指令系统开发，负责部分服务器开发工作，并完整跟进项目性能优化工作。
-          </div>
-        </div>
-        
-        <div class="project-item">
-          <div class="project-name">VR应用开发</div>
-          <div class="project-tech">Unity + C# + VR SDK</div>
-          <div class="project-desc">
-            使用Unity开发VR应用程序，实现完整的任务引导流程系统，开发角色动作模块，使用IK（反向动力学）技术模拟真实肢体动作，提供沉浸式VR体验。
-          </div>
-        </div>
-        
-        <div class="project-item">
-          <div class="project-name">个人技术博客</div>
-          <div class="project-tech">Hexo + Node.js + GitHub Actions</div>
-          <div class="project-desc">
-            基于Hexo构建的静态博客系统，记录游戏开发技术心得。集成自动化部署、背景轮播、响应式设计等功能，使用GitHub Actions实现CI/CD自动化工作流。
-          </div>
-        </div>
-      </section>
-      
-      <!-- 返回链接 -->
-      <div style="margin-top: 40px;">
-        <a href="/" class="back-link">
-          <span>←</span>
-          <span>返回首页</span>
-        </a>
       </div>
     </div>
   </div>
