@@ -104,35 +104,16 @@
       opacity: 0.95;
     }
     
-    /* 联系信息 - 带图标 */
+    /* 联系信息 */
     .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-    
-    .contact-icon {
-      width: 24px;
-      height: 24px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-    }
-    
-    .contact-text {
+      margin-bottom: 12px;
       font-size: 0.85rem;
       line-height: 1.5;
     }
     
     .contact-label {
       font-weight: 600;
-      margin-bottom: 3px;
-      font-size: 0.8rem;
+      margin-bottom: 2px;
     }
     
     /* 右侧内容 */
@@ -260,16 +241,11 @@
       color: #e74c3c;
     }
     
-    /* 技能列表 */
-    .skills-list {
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    .skills-list li {
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      line-height: 1.6;
+    /* 技能标签 */
+    .skills-content {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      word-wrap: break-word;
     }
     
     /* 响应式 */
@@ -333,35 +309,18 @@
             <div class="sidebar-title">联系方式</div>
             
             <div class="contact-item">
-              <div class="contact-icon">📍</div>
-              <div class="contact-text">
-                <div class="contact-label">地址</div>
-                <div>上海市</div>
-              </div>
+              <div class="contact-label">邮箱：</div>
+              <div>kirino8214@gmail.com</div>
             </div>
             
             <div class="contact-item">
-              <div class="contact-icon">📱</div>
-              <div class="contact-text">
-                <div class="contact-label">电话号码</div>
-                <div>19539483901</div>
-              </div>
+              <div class="contact-label">电话：</div>
+              <div>19539483901</div>
             </div>
             
             <div class="contact-item">
-              <div class="contact-icon">✉</div>
-              <div class="contact-text">
-                <div class="contact-label">电子邮件</div>
-                <div>kirino8214@gmail.com</div>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">🌐</div>
-              <div class="contact-text">
-                <div class="contact-label">个人网站</div>
-                <div>pleiadorum.cn</div>
-              </div>
+              <div class="contact-label">个人网站：</div>
+              <div>pleiadorum.cn</div>
             </div>
           </div>
           
@@ -378,7 +337,7 @@
           <!-- 技能标签 -->
           <div class="sidebar-section">
             <div class="sidebar-title">技能标签</div>
-            <div class="sidebar-content">
+            <div class="skills-content">
               Unity • UE4 • UE5 • C# • C++ • Python • Gameplay • 性能优化 • 帧同步 • Shader • SVN管理 • Git管理
             </div>
           </div>
@@ -398,12 +357,12 @@
               <div class="exp-title">UE开发 <span style="color:#999">|</span> <span class="exp-company">上海冒险岛网络</span></div>
               <div class="exp-desc">
                 <ul>
-                  <li>主导技能系统架构设计，遵循ECS框架设计，解耦技能与单位，提高新单位的开发效率和稳定性</li>
-                  <li>开发物理破坏系统，基于Chaos物理引擎和动态修改顶点信息的方式实现建筑破坏效果</li>
-                  <li>负责单位皮肤系统，实现材质动态切换与特效</li>
-                  <li>参与帧同步服务器开发，了解不同的网络同步原理和实现</li>
-                  <li>参与部分战斗UI开发，能够基于UE的材质编辑器和HLSL实现一些动态UI材质效果</li>
-                  <li>能够使用UE Trace工具和自制宏等方式进行性能分析，能够应用UE的动画优化方案，降低主线程开销，将游戏帧率从30-40帧提升至45帧以上</li>
+                  <li>主导技能系统架构设计，遵循ECS框架设计，解耦技能与单位，提高新单位的开发效率和稳定性。</li>
+                  <li>开发物理破坏系统，基于Chaos物理引擎和动态修改顶点信息的方式实现建筑破坏效果。</li>
+                  <li>负责单位皮肤系统，实现材质动态切换与特效。</li>
+                  <li>参与帧同步服务器开发，了解不同的网络同步原理和实现。</li>
+                  <li>参与部分战斗UI开发，能够基于UE的材质编辑器和HLSL实现一些动态UI材质效果。</li>
+                  <li>能够使用UE Trace工具和自制宏等方式进行性能分析，能够应用UE的动画优化方案，降低主线程开销，将游戏帧率从30-40帧提升至45帧以上。</li>
                 </ul>
               </div>
             </div>
@@ -413,10 +372,10 @@
               <div class="exp-title">U3D开发 <span style="color:#999">|</span> <span class="exp-company">宁波小伏科技有限公司</span></div>
               <div class="exp-desc">
                 <ul>
-                  <li>开发VR培训应用（PICO平台），设计任务引导系统，采用行为树实现智能引导</li>
-                  <li>使用IK（反向动力学）技术实现肢体动作模拟，提高真实感</li>
-                  <li>优化VR渲染性能，通过注视点渲染技术，降低硬件负载，提高画面稳定度</li>
-                  <li>使用Unity的粒子系统，基于Verlet积分，开发线缆模拟模块</li>
+                  <li>开发VR培训应用（PICO平台），设计任务引导系统，采用行为树实现智能引导。</li>
+                  <li>使用IK（反向动力学）技术实现肢体动作模拟，提高真实感。</li>
+                  <li>优化VR渲染性能，通过注视点渲染技术，降低硬件负载，提高画面稳定度。</li>
+                  <li>使用Unity的粒子系统，基于Verlet积分，开发线缆模拟模块。</li>
                 </ul>
               </div>
             </div>
@@ -435,10 +394,10 @@
               <div class="project-desc">
                 PVP RTS手游，支持实时多人对战。负责核心系统架构设计与性能优化：
                 <ul>
-                  <li>独立设计技能系统架构，支持技能组合、Buff/Debuff、伤害计算等复杂机制</li>
-                  <li>实现帧同步网络方案，确保战斗一致性</li>
-                  <li>开发物理破坏系统，通过Chaos与动态修改顶点信息，实现良好的视觉效果</li>
-                  <li>对游戏性能优化有了解，能够根据实际情况进行优化方案的制定和实现</li>
+                  <li>独立设计技能系统架构，支持技能组合、Buff/Debuff、伤害计算等复杂机制。</li>
+                  <li>实现帧同步网络方案，确保战斗一致性。</li>
+                  <li>开发物理破坏系统，通过Chaos与动态修改顶点信息，实现良好的视觉效果。</li>
+                  <li>对游戏性能优化有了解，能够根据实际情况进行优化方案的制定和实现。</li>
                 </ul>
               </div>
             </div>
@@ -449,9 +408,9 @@
               <div class="project-desc">
                 B端VR培训应用，用于制造业员工操作培训：
                 <ul>
-                  <li>开发任务引导系统，支持语音、文字、特效等多种引导方式</li>
-                  <li>优化VR性能，确保70-80fps稳定帧率</li>
-                  <li>对IK与动捕技术结合，实现从点到线的肢体动作模拟</li>
+                  <li>开发任务引导系统，支持语音、文字、特效等多种引导方式。</li>
+                  <li>优化VR性能，确保70-80fps稳定帧率。</li>
+                  <li>对IK与动捕技术结合，实现从点到线的肢体动作模拟。</li>
                 </ul>
               </div>
             </div>
