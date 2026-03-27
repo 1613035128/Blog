@@ -32,59 +32,66 @@
       margin: 0 auto;
       background: #fff;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      display: flex;
-      min-height: 1100px;
     }
     
-    /* 左侧边栏 */
+    /* 顶部姓名区域 */
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 40px 50px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .avatar-box {
+      width: 100px;
+      height: 100px;
+      background: #e74c3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 30px;
+    }
+    
+    .avatar-text {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .name-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e74c3c;
+      margin-bottom: 5px;
+    }
+    
+    .name-section .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+    }
+    
+    /* 主体内容区 */
+    .main-content {
+      display: flex;
+    }
+    
+    /* 左侧边栏 - 红色背景 */
     .sidebar {
       width: 280px;
-      background: #39c5bb;
+      background: #e74c3c;
       color: #fff;
       padding: 40px 30px;
       flex-shrink: 0;
     }
     
-    /* 头像区域 */
-    .avatar-section {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    .avatar {
-      width: 100px;
-      height: 100px;
-      background: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #39c5bb;
-      border: 4px solid rgba(255,255,255,0.3);
-    }
-    
-    .name-sidebar {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 5px;
-    }
-    
-    .title-sidebar {
-      font-size: 0.9rem;
-      opacity: 0.9;
-      line-height: 1.4;
-    }
-    
     /* 侧边栏区块 */
     .sidebar-section {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
     
     .sidebar-title {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 15px;
       padding-bottom: 8px;
@@ -92,17 +99,17 @@
     }
     
     .sidebar-content {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       line-height: 1.8;
       opacity: 0.95;
     }
     
-    /* 联系信息 */
+    /* 联系信息 - 带图标 */
     .contact-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
     
     .contact-icon {
@@ -113,24 +120,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       flex-shrink: 0;
     }
     
     .contact-text {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       line-height: 1.5;
     }
     
     .contact-label {
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      font-size: 0.8rem;
     }
     
     /* 右侧内容 */
     .content {
       flex: 1;
-      padding: 50px 40px;
+      padding: 40px 50px;
+      background: #fff;
     }
     
     /* 内容区块 */
@@ -146,9 +155,9 @@
     }
     
     .section-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      color: #39c5bb;
+      color: #e74c3c;
       text-transform: uppercase;
       letter-spacing: 1px;
       white-space: nowrap;
@@ -157,7 +166,7 @@
     .section-line {
       flex: 1;
       height: 2px;
-      background: #39c5bb;
+      background: #e74c3c;
     }
     
     /* 工作经历 */
@@ -165,29 +174,26 @@
       margin-bottom: 25px;
     }
     
-    .exp-header {
-      margin-bottom: 10px;
-    }
-    
     .exp-date {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #666;
       margin-bottom: 5px;
     }
     
     .exp-title {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: #333;
+      margin-bottom: 10px;
     }
     
     .exp-company {
-      color: #39c5bb;
+      color: #e74c3c;
       font-weight: 500;
     }
     
     .exp-desc {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #555;
       line-height: 1.7;
     }
@@ -198,7 +204,7 @@
     }
     
     .exp-desc li {
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       padding-left: 15px;
       position: relative;
     }
@@ -207,88 +213,63 @@
       content: '•';
       position: absolute;
       left: 0;
-      color: #39c5bb;
-    }
-    
-    /* 教育背景 */
-    .education-item {
-      margin-bottom: 15px;
-    }
-    
-    .edu-school {
-      font-weight: 600;
-      color: #333;
-    }
-    
-    .edu-degree {
-      font-size: 0.9rem;
-      color: #555;
-    }
-    
-    /* 技能标签 */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .skill-tag {
-      padding: 5px 12px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      font-size: 0.8rem;
-      color: #fff;
-      white-space: nowrap;
+      color: #e74c3c;
     }
     
     /* 项目经验 */
     .project-item {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .project-item:last-child {
-      border-bottom: none;
+      margin-bottom: 25px;
     }
     
     .project-name {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 600;
       color: #333;
       margin-bottom: 5px;
     }
     
     .project-tech {
-      font-size: 0.85rem;
-      color: #39c5bb;
-      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #e74c3c;
+      margin-bottom: 10px;
+      font-weight: 500;
     }
     
     .project-desc {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #555;
+      line-height: 1.7;
+    }
+    
+    .project-desc ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+    
+    .project-desc li {
+      margin-bottom: 6px;
+      padding-left: 15px;
+      position: relative;
+    }
+    
+    .project-desc li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #e74c3c;
+    }
+    
+    /* 技能列表 */
+    .skills-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .skills-list li {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
       line-height: 1.6;
-    }
-    
-    /* 返回按钮 - 风格一致性元素 */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      background: #39c5bb;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .back-link:hover {
-      background: #2eb5ab;
-      transform: translateY(-2px);
     }
     
     /* 响应式 */
@@ -297,7 +278,18 @@
         padding: 20px;
       }
       
-      .resume-container {
+      .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+      
+      .avatar-box {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      .main-content {
         flex-direction: column;
       }
       
@@ -314,167 +306,165 @@
 <body>
   <div class="resume-wrapper">
     <div class="resume-container">
-      <!-- 左侧边栏 -->
-      <aside class="sidebar">
-        <!-- 头像和基本信息 -->
-        <div class="avatar-section">
-          <div class="avatar">宋</div>
-          <div class="name-sidebar">宋浩然</div>
-          <div class="title-sidebar">游戏客户端开发工程师<br>（UE，U3D）</div>
+      <!-- 顶部姓名区域 -->
+      <header class="header">
+        <div class="avatar-box">
+          <span class="avatar-text">宋</span>
         </div>
-        
-        <!-- 个人简介 -->
-        <div class="sidebar-section">
-          <div class="sidebar-title">个人简介</div>
-          <div class="sidebar-content">
-            <strong>3年游戏客户端开发经验</strong>，精通<strong>Unity</strong>和<strong>UE4/5</strong>双引擎，专注<strong>Gameplay系统架构</strong>与<strong>性能优化</strong>。曾主导<strong>PVP RTS游戏核心系统开发</strong>，具备<strong>全栈开发能力</strong>（客户端+服务器）。热爱技术钻研，持续关注<strong>图形渲染</strong>与<strong>AI行为系统</strong>。
-          </div>
+        <div class="name-section">
+          <h1>宋浩然</h1>
+          <div class="subtitle">游戏客户端开发工程师（UE，U3D）</div>
         </div>
-        
-        <!-- 联系方式 -->
-        <div class="sidebar-section">
-          <div class="sidebar-title">联系方式</div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">📧</div>
-            <div class="contact-text">
-              <div class="contact-label">邮箱</div>
-              <div>kirino8214@gmail.com</div>
+      </header>
+
+      <div class="main-content">
+        <!-- 左侧边栏 -->
+        <aside class="sidebar">
+          <!-- 个人简介 -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">个人简介</div>
+            <div class="sidebar-content">
+              3年游戏客户端开发经验，熟悉Unity，UE4/5引擎，专注Gameplay系统架构与性能优化。曾主导PVP RTS游戏核心系统开发，具备全栈开发能力（客户端+服务器）。热爱技术钻研，有引擎源码阅读能力。能良好的与策划美术沟通，自驱力强，学习能力强，能承受工作压力。
             </div>
           </div>
           
-          <div class="contact-item">
-            <div class="contact-icon">📱</div>
-            <div class="contact-text">
-              <div class="contact-label">电话</div>
-              <div>19539483901</div>
+          <!-- 联系方式 -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">联系方式</div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <div class="contact-label">地址</div>
+                <div>上海市</div>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-text">
+                <div class="contact-label">电话号码</div>
+                <div>19539483901</div>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">✉</div>
+              <div class="contact-text">
+                <div class="contact-label">电子邮件</div>
+                <div>kirino8214@gmail.com</div>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">🌐</div>
+              <div class="contact-text">
+                <div class="contact-label">个人网站</div>
+                <div>pleiadorum.cn</div>
+              </div>
             </div>
           </div>
           
-          <div class="contact-item">
-            <div class="contact-icon">🌐</div>
-            <div class="contact-text">
-              <div class="contact-label">个人网站</div>
-              <div>pleiadorum.cn</div>
+          <!-- 教育背景 -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">教育背景</div>
+            <div class="sidebar-content">
+              <strong>湖南大学</strong><br>
+              数字媒体技术 - 本科<br>
+              2019.06 - 2023.07
             </div>
           </div>
-        </div>
-        
-        <!-- 教育背景 -->
-        <div class="sidebar-section">
-          <div class="sidebar-title">教育背景</div>
-          <div class="sidebar-content">
-            <strong>湖南大学</strong><br>
-            数字媒体技术 - 本科<br>
-            2019.06 - 2023.07
-          </div>
-        </div>
-        
-        <!-- 技能标签 -->
-        <div class="sidebar-section">
-          <div class="sidebar-title">技能标签</div>
-          <div class="skills-container">
-            <span class="skill-tag">Unity</span>
-            <span class="skill-tag">UE4</span>
-            <span class="skill-tag">UE5</span>
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">Lua</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Gameplay</span>
-            <span class="skill-tag">性能优化</span>
-            <span class="skill-tag">帧同步</span>
-            <span class="skill-tag">Shader</span>
-            <span class="skill-tag">Git</span>
-          </div>
-        </div>
-      </aside>
-      
-      <!-- 右侧内容 -->
-      <div class="content">
-        <!-- 工作经历 -->
-        <section class="section">
-          <div class="section-header">
-            <span class="section-title">工作经历</span>
-            <span class="section-line"></span>
-          </div>
           
-          <div class="experience-item">
-            <div class="exp-header">
+          <!-- 技能标签 -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">技能标签</div>
+            <div class="sidebar-content">
+              Unity • UE4 • UE5 • C# • C++ • Python • Gameplay • 性能优化 • 帧同步 • Shader • SVN管理 • Git管理
+            </div>
+          </div>
+        </aside>
+        
+        <!-- 右侧内容 -->
+        <div class="content">
+          <!-- 工作经历 -->
+          <section class="section">
+            <div class="section-header">
+              <span class="section-title">工作经历</span>
+              <span class="section-line"></span>
+            </div>
+            
+            <div class="experience-item">
               <div class="exp-date">2025.02 - 至今</div>
               <div class="exp-title">UE开发 <span style="color:#999">|</span> <span class="exp-company">上海冒险岛网络</span></div>
+              <div class="exp-desc">
+                <ul>
+                  <li>主导技能系统架构设计，遵循ECS框架设计，解耦技能与单位，提高新单位的开发效率和稳定性</li>
+                  <li>开发物理破坏系统，基于Chaos物理引擎和动态修改顶点信息的方式实现建筑破坏效果</li>
+                  <li>负责单位皮肤系统，实现材质动态切换与特效</li>
+                  <li>参与帧同步服务器开发，了解不同的网络同步原理和实现</li>
+                  <li>参与部分战斗UI开发，能够基于UE的材质编辑器和HLSL实现一些动态UI材质效果</li>
+                  <li>能够使用UE Trace工具和自制宏等方式进行性能分析，能够应用UE的动画优化方案，降低主线程开销，将游戏帧率从30-40帧提升至45帧以上</li>
+                </ul>
+              </div>
             </div>
-            <div class="exp-desc">
-              <ul>
-                <li>主导<strong>技能系统架构设计</strong>，支持50+种技能配置，实现技能连招、冷却、消耗等核心机制</li>
-                <li>开发<strong>物理破坏系统</strong>，基于Chaos物理引擎实现建筑破坏效果，优化后同屏支持<strong>1000+物理物体</strong></li>
-                <li>负责<strong>单位皮肤系统</strong>，实现材质动态切换与LOD优化，<strong>渲染性能提升30%</strong></li>
-                <li>参与<strong>帧同步服务器开发</strong>，实现状态同步与回滚机制，网络延迟控制在<strong>50ms以内</strong></li>
-                <li>使用<strong>UE Profiler</strong>进行性能分析，通过Draw Call合并与材质优化，<strong>帧率从30fps提升至60fps</strong></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div class="experience-item">
-            <div class="exp-header">
+            
+            <div class="experience-item">
               <div class="exp-date">2023.07 - 2024.12</div>
               <div class="exp-title">U3D开发 <span style="color:#999">|</span> <span class="exp-company">宁波小伏科技有限公司</span></div>
+              <div class="exp-desc">
+                <ul>
+                  <li>开发VR培训应用（PICO平台），设计任务引导系统，采用行为树实现智能引导</li>
+                  <li>使用IK（反向动力学）技术实现肢体动作模拟，提高真实感</li>
+                  <li>优化VR渲染性能，通过注视点渲染技术，降低硬件负载，提高画面稳定度</li>
+                  <li>使用Unity的粒子系统，基于Verlet积分，开发线缆模拟模块</li>
+                </ul>
+              </div>
             </div>
-            <div class="exp-desc">
-              <ul>
-                <li>开发<strong>VR培训应用</strong>（Oculus Quest平台），实现手势识别与空间定位功能</li>
-                <li>设计<strong>任务引导系统</strong>，采用行为树（Behavior Tree）实现NPC智能引导，<strong>用户完成率提升40%</strong></li>
-                <li>使用<strong>IK（反向动力学）</strong>技术实现肢体动画，支持15种工业操作动作</li>
-                <li>优化VR渲染性能，通过注视点渲染（Foveated Rendering）技术，<strong>GPU负载降低25%</strong></li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        
-        <!-- 项目经验 -->
-        <section class="section">
-          <div class="section-header">
-            <span class="section-title">项目经验</span>
-            <span class="section-line"></span>
-          </div>
+          </section>
           
-          <div class="project-item">
-            <div class="project-name">战争警戒（War Alert）</div>
-            <div class="project-tech">UE5 + C++ + 帧同步 | 团队规模：15人 | 开发周期：12个月</div>
-            <div class="project-desc">
-              <strong>PVP RTS手游</strong>，支持实时多人对战。负责核心系统架构设计与性能优化：
-              <ul style="margin-top:8px; padding-left:15px;">
-                <li>独立设计<strong>技能系统架构</strong>，支持技能组合、Buff/Debuff、伤害计算等复杂机制</li>
-                <li>实现<strong>帧同步网络方案</strong>，解决延迟补偿与状态回滚问题，确保战斗一致性</li>
-                <li>优化物理破坏效果，通过<strong>Chaos缓存与异步计算</strong>，同屏物理物体从200提升至1000+</li>
-                <li>项目上线首月<strong>DAU 10万+</strong>，用户留存率<strong>45%</strong></li>
-              </ul>
+          <!-- 项目经验 -->
+          <section class="section">
+            <div class="section-header">
+              <span class="section-title">项目经验</span>
+              <span class="section-line"></span>
             </div>
-          </div>
-          
-          <div class="project-item">
-            <div class="project-name">VR工业培训系统</div>
-            <div class="project-tech">Unity + C# + Oculus SDK | 团队规模：5人 | 开发周期：6个月</div>
-            <div class="project-desc">
-              <strong>B端VR培训应用</strong>，用于制造业员工操作培训：
-              <ul style="margin-top:8px; padding-left:15px;">
-                <li>开发<strong>任务引导系统</strong>，支持语音、文字、手势多种引导方式</li>
-                <li>实现<strong>操作评分机制</strong>，记录用户操作轨迹并生成培训报告</li>
-                <li>优化VR性能，确保<strong>90fps稳定帧率</strong>，降低晕动症发生率</li>
-                <li>客户反馈培训效率<strong>提升60%</strong>，操作错误率<strong>降低80%</strong></li>
-              </ul>
+            
+            <div class="project-item">
+              <div class="project-name">战争警戒（War Alert）</div>
+              <div class="project-tech">UE4/5 • C++ • 帧同步 • 性能优化</div>
+              <div class="project-desc">
+                PVP RTS手游，支持实时多人对战。负责核心系统架构设计与性能优化：
+                <ul>
+                  <li>独立设计技能系统架构，支持技能组合、Buff/Debuff、伤害计算等复杂机制</li>
+                  <li>实现帧同步网络方案，确保战斗一致性</li>
+                  <li>开发物理破坏系统，通过Chaos与动态修改顶点信息，实现良好的视觉效果</li>
+                  <li>对游戏性能优化有了解，能够根据实际情况进行优化方案的制定和实现</li>
+                </ul>
+              </div>
             </div>
-          </div>
-          
-          <div class="project-item">
-            <div class="project-name">个人技术博客</div>
-            <div class="project-tech">Hexo + Node.js + GitHub Actions</div>
-            <div class="project-desc">
-              基于Hexo构建的静态博客系统，记录游戏开发技术心得。集成自动化部署、背景轮播、响应式设计等功能，使用GitHub Actions实现CI/CD自动化工作流。累计发布<strong>技术文章20+篇</strong>，涵盖Unity、UE5、性能优化等主题。
+            
+            <div class="project-item">
+              <div class="project-name">VR工业培训系统</div>
+              <div class="project-tech">Unity • C# • PICO SDK</div>
+              <div class="project-desc">
+                B端VR培训应用，用于制造业员工操作培训：
+                <ul>
+                  <li>开发任务引导系统，支持语音、文字、特效等多种引导方式</li>
+                  <li>优化VR性能，确保70-80fps稳定帧率</li>
+                  <li>对IK与动捕技术结合，实现从点到线的肢体动作模拟</li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </section>
-        
+            
+            <div class="project-item">
+              <div class="project-name">个人技术博客</div>
+              <div class="project-tech">Hexo框架，纯自然语言开发</div>
+              <div class="project-desc">
+                基于Hexo构建的静态博客系统，游戏开发技术心得。集成自动化部署、背景轮播、响应式设计等功能，使用纯自然语言引导开发。能够使用AI工具辅助开发，提高开发效率。
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
