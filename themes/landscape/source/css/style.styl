@@ -12,8 +12,11 @@ input, button
     border: 0
     padding: 0
 
-html, body, #container
-  height: 100%
+html, body
+  min-height: 100%
+
+#container
+  min-height: 100vh
 
 body
   background: color-background
@@ -45,11 +48,9 @@ body
   overflow: hidden
 
 #wrap
-  height: 100%
+  min-height: 100%
   width: 100%
-  position: absolute
-  top: 0
-  left: 0
+  position: relative
   transition: 0.2s ease-out
   z-index: 1
   background: color-background

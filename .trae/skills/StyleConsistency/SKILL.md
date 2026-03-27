@@ -15,7 +15,7 @@ Maintain visual consistency across the entire blog website. When any style eleme
 
 | Element | Location | Style Properties | Usage Locations |
 |---------|----------|------------------|-----------------|
-| **Primary Button** | `.back-link`, `.back-to-archives-btn` | Background: #39c5bb, Border-radius: 6px, Padding: 12px 24px, Color: white | resume/index.html, 所有页面侧边栏 |
+| **Primary Button** | `.back-to-archives-btn` | Background: #39c5bb, Border-radius: 6px, Padding: 12px 24px, Color: white | 所有页面侧边栏 |
 | **Sidebar Background** | `.sidebar` | Background: #39c5bb, Color: white | resume/index.html |
 | **Section Title** | `.section-title` | Color: #39c5bb, Uppercase, Letter-spacing: 1px | resume/index.html |
 | **Skill Tag** | `.skill-tag` | Background: rgba(255,255,255,0.15), Border: 1px solid rgba(255,255,255,0.3), Border-radius: 15px, Color: white | resume/index.html (侧边栏技能标签) |
@@ -37,16 +37,27 @@ Maintain visual consistency across the entire blog website. When any style eleme
   - Color: white
   - Hover: background: #2eb5ab, transform: translateY(-2px)
 
+### Layout Structure (布局结构)
+
+#### Hexo主题布局层级
+```
+#container (min-height: 100vh)
+  └── #wrap (min-height: 100%, position: relative)
+      └── .outer (max-width container)
+          ├── #main (主内容区)
+          └── sidebar (侧边栏)
+```
+
+**注意**: 之前分割线问题是因为 `#wrap` 设置了 `height: 100%` 和 `position: absolute`，已修复为 `min-height: 100%` 和 `position: relative`。
+
 ### Recent Changes Log
 
 **2025-03-27:**
 - ✅ Changed "技能特长" to "技能标签" in sidebar
 - ✅ Updated skill tag style: white text on transparent background with white border
-- ✅ Changed "返回首页" button to "返回目录", target changed from "/" to "/archives/"
-- ✅ Moved button position to below project experience section
-- ✅ Fixed background split line issue by adding .resume-wrapper with full background
 - ✅ Created universal "Back to Archives" button component for all pages
-- ✅ Added flex display to .resume-wrapper to ensure full height coverage
+- ✅ Fixed background split line issue by modifying #wrap and #container height properties
+- ✅ Removed back button from resume page (now only in sidebar)
 
 ## When to Invoke
 
@@ -78,7 +89,7 @@ When creating a universal component:
 ## Example
 
 User: "Change the button color to red"
-→ Action: Update all `.back-link` and `.back-to-archives-btn` buttons
+→ Action: Update all `.back-to-archives-btn` buttons
 
 User: "Make the sidebar darker"
 → Action: Update `.sidebar` background color and check for related elements
