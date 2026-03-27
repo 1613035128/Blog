@@ -50,6 +50,7 @@ widgets:
 - tagcloud
 - archive
 - recent_posts
+- back_to_archives
 
 # ===============
 # Widget behavior
